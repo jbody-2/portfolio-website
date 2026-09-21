@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root { --bg: #F5F5F5; --text: #0B0B0B; --squall: #7D9193; --muted: #687274; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
+.site { --bg: #F5F5F5; --text: #0B0B0B; --muted: #687274; min-height: 100vh; background: var(--bg); color: var(--text); transition: background-color .2s ease, color .2s ease; font-family: 'Manrope', Arial, sans-serif; }
+.site.dark { --bg: #0B0B0B; --text: #F5F5F5; --muted: #aeb8b9; }
+.nav-wrap { padding: 22px 48px 0; }
+.nav { height: 50px; display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid #7D9193; }
+a { color: inherit; text-decoration: none; }
+.wordmark { font-size: 15px; font-weight: 700; letter-spacing: -.04em; }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 13px; letter-spacing: -.02em; }
+.nav-links a { padding-top: 1px; }
+.theme-toggle { border: 0; color: inherit; background: transparent; padding: 0 0 3px 6px; cursor: pointer; display: grid; place-items: center; }
+main { padding: 0 48px; }
+.intro { padding: 105px 0 152px; max-width: 940px; }
+.eyebrow, .section-heading, .project-meta, footer, .notes { font-size: 12px; letter-spacing: -.02em; }
+.eyebrow { margin: 0 0 34px; color: var(--muted); }
+h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spacing: -.085em; font-weight: 500; }
+.intro-copy { max-width: 430px; margin: 48px 0 0 auto; font-size: 17px; line-height: 1.35; letter-spacing: -.04em; font-weight: 500; }
+.intro-copy span { color: var(--muted); }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; color: var(--muted); border-top: 1px solid #7D9193; padding-top: 12px; margin-bottom: 24px; }
+.section-heading h2 { margin: 0; color: var(--text); font-size: 15px; font-weight: 700; letter-spacing: -.04em; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; row-gap: 80px; }
+.project-image { display: block; position: relative; aspect-ratio: 1.38; overflow: hidden; border-radius: 12px; background: #ddd; }
+.project-image img { object-fit: cover; }
+.project-number { position: absolute; top: 14px; left: 16px; color: rgba(255,255,255,.75); font-size: 12px; font-weight: 700; mix-blend-mode: difference; }
+.project-meta { display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; }
+.project-meta h3 { margin: 0; font-size: 15px; letter-spacing: -.04em; }
+.project-meta div { display: flex; gap: 18px; color: var(--muted); }
+.about-section { padding: 176px 0 160px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.about-lede { font-size: clamp(30px, 4vw, 58px); line-height: 1.02; letter-spacing: -.075em; margin: 0; max-width: 620px; }
+.about-detail { max-width: 360px; margin-left: auto; font-size: 15px; line-height: 1.4; letter-spacing: -.035em; }
+.about-detail p { margin: 0 0 36px; }
+.about-detail a { border-bottom: 1px solid #7D9193; padding-bottom: 3px; }
+.about-detail a span { color: var(--squall); margin-left: 7px; }
+.lab-section { padding-bottom: 160px; }
+.notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.notes p { margin: 0; padding-top: 12px; border-top: 1px solid #7D9193; line-height: 1.35; }
+.notes span { display: block; color: var(--muted); margin-bottom: 30px; }
+footer { border-top: 1px solid #7D9193; margin: 0 48px; padding: 14px 0 28px; display: flex; justify-content: space-between; color: var(--muted); }
+@media (max-width: 1279px) { .project-grid { grid-template-columns: 1fr; row-gap: 64px; } .project-image { aspect-ratio: 1.65; } }
+@media (max-width: 700px) { .nav-wrap { padding: 20px 20px 0; } main { padding: 0 20px; } .nav-links { gap: 16px; } .intro { padding: 80px 0 110px; } h1 { font-size: clamp(48px, 14vw, 84px); } .desktop-break { display: none; } .intro-copy { margin-top: 38px; font-size: 16px; } .about-section { padding: 120px 0; } .about-grid { grid-template-columns: 1fr; gap: 48px; } .about-detail { margin-left: 0; } .notes { grid-template-columns: 1fr; gap: 36px; } footer { margin: 0 20px; flex-direction: column; gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .site { transition: none; } }
+@font-face { font-family: 'Manrope'; src: url('https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FN_C-bk.woff2') format('woff2'); font-style: normal; font-weight: 200 800; font-display: swap; }
