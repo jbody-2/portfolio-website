@@ -21,6 +21,7 @@ export function CaseStudy({ slug }: { slug: string }) {
     setDark((current) => {
       const next = !current
       window.localStorage.setItem('portfolio-theme', next ? 'dark' : 'light')
+      document.documentElement.classList.toggle('theme-dark', next)
       return next
     })
   }

@@ -6,7 +6,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
 .site { --bg: #F5F5F5; --text: #0B0B0B; --muted: #687274; min-height: 100vh; background: var(--bg); color: var(--text); transition: background-color .2s ease, color .2s ease; font-family: 'Manrope', Arial, sans-serif; }
-.site.dark { --bg: #0B0B0B; --text: #F5F5F5; --muted: #aeb8b9; }
+.site.dark, html.theme-dark .site { --bg: #0B0B0B; --text: #F5F5F5; --muted: #aeb8b9; }
 .nav-wrap { padding: 48px 48px 0; }
 .nav { height: 50px; display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid #7D9193; }
 .wordmark { font-size: 18px; }
