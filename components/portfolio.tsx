@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Moon, Sun } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const projects = [
   { title: 'Atlas', type: 'UI, UX', year: '2024', image: '/projects/atlas.png', color: 'blue', slug: 'atlas' },
@@ -15,7 +15,18 @@ const projects = [
 export function Portfolio() {
   const [dark, setDark] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const toggleTheme = () => setDark(!dark)
+
+  useEffect(() => {
+    setDark(window.localStorage.getItem('portfolio-theme') === 'dark')
+  }, [])
+
+  const toggleTheme = () => {
+    setDark((current) => {
+      const next = !current
+      window.localStorage.setItem('portfolio-theme', next ? 'dark' : 'light')
+      return next
+    })
+  }
 
   return <div className={dark ? 'site dark' : 'site'}>
     <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="#top">julian body</Link><div className="nav-links"><div className="desktop-nav"><Link href="#projects">projects</Link><Link href="#lab">lab</Link><Link href="#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu"><Link href="#projects" onClick={() => setMenuOpen(false)}>projects</Link><Link href="#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>

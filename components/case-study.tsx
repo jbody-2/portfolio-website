@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 
 const sections = [
@@ -12,11 +12,24 @@ const sections = [
 export function CaseStudy({ slug }: { slug: string }) {
   const [dark, setDark] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    setDark(window.localStorage.getItem('portfolio-theme') === 'dark')
+  }, [])
+
+  const toggleTheme = () => {
+    setDark((current) => {
+      const next = !current
+      window.localStorage.setItem('portfolio-theme', next ? 'dark' : 'light')
+      return next
+    })
+  }
+
   const name = slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
 
   return (
     <div className={dark ? 'site dark' : 'site'}>
-      <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="/">julian body</Link><div className="nav-links"><div className="desktop-nav"><Link href="/">projects</Link><Link href="/#lab">lab</Link><Link href="/#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={() => setDark(!dark)} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu"><Link href="/" onClick={() => setMenuOpen(false)}>projects</Link><Link href="/#lab" onClick={() => setMenuOpen(false)}>lab</Link><Link href="/#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>
+      <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="/">julian body</Link><div className="nav-links"><div className="desktop-nav"><Link href="/">projects</Link><Link href="/#lab">lab</Link><Link href="/#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu"><Link href="/" onClick={() => setMenuOpen(false)}>projects</Link><Link href="/#lab" onClick={() => setMenuOpen(false)}>lab</Link><Link href="/#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>
       <main className="case-study">
         <header className="case-header"><p className="case-company">Independent case study</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>Design direction, Product design</strong></div><div><span>Deliverables</span><strong>Strategy, UX, Visual system</strong></div><div><span>Timeline</span><strong>12 weeks · 2024</strong></div></div><p className="case-intro">A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.</p><button className="case-cta" type="button">Check it out</button></header>
         <div className="placeholder landscape">Landscape image placeholder</div>
