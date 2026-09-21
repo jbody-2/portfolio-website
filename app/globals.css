@@ -29,7 +29,8 @@ main { padding: 0 48px; }
 h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spacing: -.085em; font-weight: 500; }
 
 .case-study { max-width: none; margin: 0; padding-top: 48px; text-align: left; font-weight: 700; }
-.case-study .case-company, .case-study .case-meta span, .case-study .section-subtitle, .case-study .stats span { font-weight: 700; }
+.case-study .case-company, .case-study .section-subtitle, .case-study .stats span { font-weight: 700; }
+.case-study .case-meta span { font-weight: 600; }
 .case-study .case-header h1 { font-weight: 600; }
 .case-study .case-intro { font-weight: 300; }
 .theme-toggle svg { width: 18px; height: 18px; }
@@ -38,10 +39,10 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spa
 .case-company, .case-meta span, .section-subtitle { color: var(--text); font-size: 14px; }
 .case-company { margin: 0 0 8px; }
 .case-header h1 { font-size: clamp(72px, 10vw, 144px); line-height: .95; font-weight: 600; }
-.case-header { padding-bottom: 48px; }
 .case-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 72px; }
 .case-meta div { display: grid; gap: 10px; }
-.case-meta strong { font-size: 15px; font-weight: 500; }
+.case-meta span { font-size: 16px; font-weight: 600; }
+.case-meta strong { font-size: 16px; font-weight: 400; }
 .case-intro { max-width: none; width: 100%; margin: 56px 0 0; font-size: 48px; line-height: 1.04; letter-spacing: -.06em; font-weight: 300; }
 .case-cta { margin-top: 24px; border: 0; border-radius: 48px; padding: 15px 24px; background: var(--text); color: var(--bg); font: inherit; font-size: 16px; cursor: pointer; }
 .case-study > .back-link { display: block; margin: 0 0 48px; }
