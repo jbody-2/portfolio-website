@@ -49,6 +49,7 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spa
 .case-study > .stats { margin-bottom: 48px; }
 .case-study > footer { margin-top: 0; }
 .placeholder { display: grid; place-items: center; background: #dcdedc; color: #7b8180; border-radius: 16px; min-height: 360px; font-size: 14px; }
+.case-hero-image { width: 100%; object-fit: cover; }
 .landscape { aspect-ratio: 1.7; }
 .case-copy { max-width: none; margin: 128px 0; }
 .case-copy section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; align-items: start; }
