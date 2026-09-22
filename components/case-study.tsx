@@ -9,6 +9,13 @@ const defaultSections = [
   { title: 'Built around real work', subtitle: 'A flexible foundation for changing needs', body: 'Through research, prototyping, and close collaboration, we created an experience that meets people where they are and gets better as their work evolves.' },
 ]
 
+const influencerSections = [
+  { title: 'Integrating eBay.ai', subtitle: 'A Conversational Experience', body: "We integrated eBay.ai directly into core search, guiding buyers from discovery to decision through natural language. Buyers can ask questions related to their search context and receive grounded, category-specific responses. We designed the system to reduce effort, build trust, and drive purchase confidence." },
+  { title: 'AI-Search Interface', subtitle: 'Designing the Core Components', body: 'I designed key product components—such as the new AI search bar, top navigation, and onboarding flow—in collaboration with Core AI and Design Systems. I also led the integration of Apple’s new iOS 26 "Liquid Glass" design language into the product to ensure a polished, modern experience.' },
+  { title: 'Interaction Framework', subtitle: 'Levels of AI', body: "Our team explored and experimented with many ways of interacting with AI. We developed a system that changes depending on the user's context in order to best support the task at hand." },
+  { title: 'Evolving the Product', subtitle: 'Learning in Market', body: 'I helped design and launch this product alongside one of the largest cross-functional teams I’ve worked with—spanning numerous disciplines and time zones. We continue refining the experience in response to live metrics, customer feedback, and ongoing experimentation.' },
+]
+
 const lokalSections = [
   { title: 'Map-based discovery', subtitle: 'Making Local Visible', body: "Working closely with the Maps designer, I integrated the dynamic map experience into the Hub's core flow. Users can visually browse items around them, making discovery more intuitive and immediate. Seeing inventory geographically added transparency and trust while elevating seller presence." },
   { title: 'Experience Strategy', subtitle: 'Designing for Local Intent', body: "We defined the Local Hub as an early anchor in the local buying journey. Clear guiding principles helped define the Hub's structure across an item, feature, and page level. The result was an experience tailored to eBay members and guests alike." },
@@ -34,21 +41,22 @@ export function CaseStudy({ slug }: { slug: string }) {
   }
 
   const isLokal = slug === 'lokal'
-  const name = isLokal ? 'Lokal' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
-  const company = isLokal ? 'eBay' : 'Independent case study'
-  const sections = isLokal ? lokalSections : defaultSections
-  const metadata = isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
+  const isInfluencers = slug === 'influencers'
+  const name = isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
+  const company = isLokal || isInfluencers ? 'eBay' : 'Independent case study'
+  const sections = isLokal ? lokalSections : isInfluencers ? influencerSections : defaultSections
+  const metadata = isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : isInfluencers ? { role: 'Product Designer', deliverables: 'Native UI, UX, User Research', timeline: '8 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
   const stats = isLokal ? [['52.5M', 'GMV, +5% growth in local transactions'], ['12', 'Percent increase in Watchlist saves for local inventory'], ['30', 'Percent faster discovery time for local items'], ['4x', 'Increase in local pickup searches in the first 90 days']] : [['42%', 'increase in task completion'], ['3.8x', 'faster time to value'], ['12k', 'active users in the first quarter'], ['4.9', 'average product rating']]
 
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="/">julian body</Link><div className="nav-links"><div className="desktop-nav"><Link href="/">projects</Link><Link href="/#lab">lab</Link><Link href="/#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu"><Link href="/" onClick={() => setMenuOpen(false)}>projects</Link><Link href="/#lab" onClick={() => setMenuOpen(false)}>lab</Link><Link href="/#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>
       <main className="case-study">
-        <header className="case-header"><p className="case-company">{company}</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>{metadata.role}</strong></div><div><span>Deliverables</span><strong>{metadata.deliverables}</strong></div><div><span>Timeline</span><strong>{metadata.timeline}</strong></div></div><p className="case-intro">{isLokal ? "I helped launch eBay's Local Hub, a neighborhood shopping experience that began in Germany which now serves as the model for global marketplaces." : 'A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.'}</p><button className="case-cta" type="button">Check it out</button></header>
+        <header className="case-header"><p className="case-company">{company}</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>{metadata.role}</strong></div><div><span>Deliverables</span><strong>{metadata.deliverables}</strong></div><div><span>Timeline</span><strong>{metadata.timeline}</strong></div></div><p className="case-intro">{isLokal ? "I helped launch eBay's Local Hub, a neighborhood shopping experience that began in Germany which now serves as the model for global marketplaces." : isInfluencers ? "As a lead designer of eBay's conversational search experience, I shape how buyers interact with AI to discover items through natural language." : 'A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.'}</p><button className="case-cta" type="button">Check it out</button></header>
         <div className={`placeholder landscape ${isLokal ? 'lokal-placeholder' : ''}`}>{isLokal ? 'Lokal landscape image · /public/lokal/hero.png' : 'Landscape image placeholder'}</div>
         <div className="case-copy">{sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p className="section-subtitle">{section.subtitle}</p><p>{section.body}</p></section>)}</div>
         <div className="case-images"><div className="placeholder portrait">{isLokal ? 'Lokal portrait image · /public/lokal/portrait-1.png' : 'Portrait image placeholder'}</div><div className="placeholder portrait">{isLokal ? 'Lokal portrait image · /public/lokal/portrait-2.png' : 'Portrait image placeholder'}</div></div>
-        <div className="stats">{stats.map(([value, description]) => <div key={value}><strong>{value}</strong><span>{description}</span></div>)}</div>
+        {!isInfluencers && <div className="stats">{stats.map(([value, description]) => <div key={value}><strong>{value}</strong><span>{description}</span></div>)}</div>}
         <Link className="back-link back-link-bottom" href="/">← Back to projects</Link>
       </main>
       <footer><span>© {new Date().getFullYear()} Julian Body</span></footer>
