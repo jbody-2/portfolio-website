@@ -6,10 +6,10 @@ import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const projects = [
-  { title: 'Lokal', type: 'UI, UX', year: '2024', image: '/lokal/hero.png', color: 'blue', slug: 'lokal' },
-  { title: 'Influencer Storefront', type: 'UI, UX, Research', year: '2023', image: '/projects/fieldnotes.png', color: 'terra', slug: 'influencers' },
-  { title: 'Our Grails', type: 'Installation, Publication', year: '2023', image: '/projects/forma.png', color: 'lime', slug: 'our-grails' },
-  { title: 'AI Search', type: 'UI, UX, Research', year: '2023', image: '/projects/quiet.png', color: 'lavender', slug: 'ai-search' },
+  { title: 'Lokal', type: 'UI, UX', year: '2024', image: '/hero thumbs/Lokal Mockup_.png', color: 'blue', slug: 'lokal' },
+  { title: 'Influencer Storefront', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Emma Winter.png', color: 'terra', slug: 'influencers' },
+  { title: 'Our Grails', type: 'Installation, Publication', year: '2023', image: '/hero thumbs/our grails thumbnail.png', color: 'lime', slug: 'our-grails' },
+  { title: 'AI Search', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Landscape-1.png', color: 'lavender', slug: 'ai-search' },
 ]
 
 export function Portfolio() {
