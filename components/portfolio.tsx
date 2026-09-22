@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 const projects = [
   { title: 'Lokal', type: 'UI, UX', year: '2024', image: '/lokal/hero.png', color: 'blue', slug: 'lokal' },
-  { title: 'Influencer Storefront', type: 'UI, UX, Research', year: '2023', image: '/projects/fieldnotes.png', color: 'terra', slug: 'influencers' },
+  { title: 'AI Search', type: 'UI, UX, Research', year: '2023', image: '/projects/fieldnotes.png', color: 'terra', slug: 'influencers' },
   { title: 'Forma', type: 'Brand, Digital', year: '2023', image: '/projects/forma.png', color: 'lime', slug: 'forma' },
   { title: 'Quiet Hours', type: 'Mobile, UX', year: '2022', image: '/projects/quiet.png', color: 'lavender', slug: 'quiet-hours' },
 ]

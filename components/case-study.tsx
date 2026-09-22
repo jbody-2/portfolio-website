@@ -42,7 +42,7 @@ export function CaseStudy({ slug }: { slug: string }) {
 
   const isLokal = slug === 'lokal'
   const isInfluencers = slug === 'influencers'
-  const name = isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
+  const name = isLokal ? 'Lokal' : isInfluencers ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
   const company = isLokal || isInfluencers ? 'eBay' : 'Independent case study'
   const sections = isLokal ? lokalSections : isInfluencers ? influencerSections : defaultSections
   const metadata = isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : isInfluencers ? { role: 'Product Designer', deliverables: 'Native UI, UX, User Research', timeline: '8 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
