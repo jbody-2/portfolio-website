@@ -82,7 +82,7 @@ footer { border-top: 1px solid #7D9193; margin: 0 48px; padding: 14px 0 28px; di
 .project-image img { object-fit: cover; }
 .project-number { position: absolute; top: 14px; left: 16px; color: rgba(255,255,255,.75); font-size: 12px; font-weight: 700; mix-blend-mode: difference; }
 .project-meta { display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; }
-.project-meta h3 { margin: 0; font-size: 16px; letter-spacing: -.04em; font-weight: 600; }
+.project-meta h3 { margin: 0; font-size: 16px; letter-spacing: -.04em; font-weight: 500; }
 .project-meta div { display: flex; gap: 18px; color: var(--text); }
 .about-section { padding: 176px 0 160px; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
