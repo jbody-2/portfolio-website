@@ -10,6 +10,7 @@ const projects = [
   { title: 'Influencer Storefront', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Emma Winter.png', color: 'terra', slug: 'influencers' },
   { title: 'Our Grails', type: 'Installation, Publication', year: '2023', image: '/Grails - Body 15.jpeg', color: 'lime', slug: 'our-grails' },
   { title: 'AI Search', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Landscape-1.png', color: 'lavender', slug: 'ai-search' },
+  { title: 'Equanimity', type: 'Type placeholder', year: '2024', image: '/table 1.png', color: 'blue', slug: 'equanimity' },
 ]
 
 export function Portfolio() {
