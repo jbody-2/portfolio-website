@@ -83,7 +83,15 @@ export function CaseStudy({ slug }: { slug: string }) {
             {['/table 1.png', '/table 2.png', '/Table 6.png', '/Table 7.JPG'].map((src, index) => (
               <Fragment key={src}>
                 <img className={index === 0 ? 'placeholder landscape case-hero-image equanimity-hero' : 'placeholder landscape case-hero-image'} src={src} alt={`Equanimity image ${[1, 2, 6, 7][index]}`} />
-                {index === 1 && renderSection(0)}
+                {index === 1 && (
+                  <>
+                    <div className="case-images">
+                      <img className="placeholder portrait case-portrait-image" src="/Table 3 (Side A).JPG" alt="Equanimity image 3 detail A" />
+                      <img className="placeholder portrait case-portrait-image" src="/Table 3 (Side B).jpg" alt="Equanimity image 3 detail B" />
+                    </div>
+                    {renderSection(0)}
+                  </>
+                )}
                 {index === 3 && renderSection(1)}
               </Fragment>
             ))}
@@ -96,6 +104,7 @@ export function CaseStudy({ slug }: { slug: string }) {
                 {number === 8 && renderSection(2)}
               </Fragment>
             ))}
+            <img className="placeholder landscape case-hero-image" src="/Table 4.jpg" alt="Equanimity image 4" />
           </div>
         ) : isAiSearch ? (
           <div className="ai-gallery">
