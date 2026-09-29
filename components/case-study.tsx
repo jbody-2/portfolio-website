@@ -66,7 +66,7 @@ export function CaseStudy({ slug }: { slug: string }) {
   const grailsThumbnail = '/hero thumbs/our grails thumbnail.png'
   const lokalLandscapeImages = [1, 5, 6, 7, 8, 11, 12, 13, 14].map((number) => `/ Local Hub ${number}.${number === 12 || number === 13 || number === 14 ? 'jpg' : 'png'}`)
   const lokalPortraitGroups = [[2, 'png'], [3, 'png'], [10, 'jpg']].map(([number, extension]) => [`/ Local Hub ${number} (Side A).${extension}`, `/ Local Hub ${number} (Side B).${extension}`])
-  const influencerImages = ['/Influencer 1.png', '/Influencer 3.png', '/Influencer 4.png', '/Influencer 5.png', '/Influencer 6.png', '/Influencer 7.png', '/Influencer 8.png', '/Influencer 9.png', '/Influencer 10.png']
+  const influencerImages = ['/Influencer 1.png', '/Influencer 3.png', '/Influencer 4.png', '/Influencer 6.png', '/Influencer 7.png', '/Influencer 8.png', '/Influencer 9.png', '/Influencer 10.png']
   const influencerPortraits = ['/Influencer 2 (Side A).png', '/Influencer 2 (Side B).png']
 
   return (
