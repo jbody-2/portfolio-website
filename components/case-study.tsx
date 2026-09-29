@@ -58,7 +58,8 @@ export function CaseStudy({ slug }: { slug: string }) {
   const isEquanimity = slug === 'equanimity'
   const name = isEquanimity ? 'Equanimity' : isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : isGrails ? 'Our Grails' : isAiSearch ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
   const company = isEquanimity ? 'Company placeholder' : isLokal || isInfluencers || isAiSearch ? 'eBay' : isGrails ? 'University of Washington' : 'Independent case study'
-  const sections = isLokal ? lokalSections : isInfluencers ? influencerSections : isGrails ? grailsSections : isAiSearch ? aiSearchSections : defaultSections
+  const equanimitySections = [1, 2, 3].map((number) => ({ title: `Section title ${number}`, subtitle: 'Subtitle placeholder', body: 'Body placeholder — a short paragraph describing this part of the Equanimity project will go here. Replace this copy with the final narrative once it is ready.' }))
+  const sections = isEquanimity ? equanimitySections : isLokal ? lokalSections : isInfluencers ? influencerSections : isGrails ? grailsSections : isAiSearch ? aiSearchSections : defaultSections
   const metadata = isEquanimity ? { role: 'Role placeholder', deliverables: 'Deliverables placeholder', timeline: 'Timeline placeholder' } : isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : isInfluencers ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '4 months' } : isGrails ? { role: 'Researcher, Designer', deliverables: 'Thesis, Publication, Gallery Exhibit', timeline: '12 months' } : isAiSearch ? { role: 'Product Designer', deliverables: 'Native UI, UX, User Research', timeline: '8 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
   const stats = isLokal ? [['52.5M', 'GMV, +5% growth in local transactions'], ['12', 'Percent increase in Watchlist saves for local inventory'], ['30', 'Percent faster discovery time for local items'], ['4x', 'Increase in local pickup searches in the first 90 days']] : isInfluencers ? [['22', 'Influencers represented in The Cast'], ['400+', 'Updates to Storefronts this year'], ['3', 'Global markets Storefronts has expanded to'], ['22', 'Colleagues I collaborated with to make this project a reality across ads, marketing, product, & engineering']] : [['42%', 'increase in task completion'], ['3.8x', 'faster time to value'], ['12k', 'active users in the first quarter'], ['4.9', 'average product rating']]
   const landscapeImage = isLokal ? '/hero thumbs/Lokal Mockup_.png' : isInfluencers ? '/hero thumbs/Emma Winter.png' : isGrails ? '/Grails - Body 15.jpeg' : isAiSearch ? '/hero thumbs/Landscape-1.png' : null
@@ -80,13 +81,20 @@ export function CaseStudy({ slug }: { slug: string }) {
         {isEquanimity ? (
           <div className="equanimity-gallery">
             {['/table 1.png', '/table 2.png', '/Table 6.png', '/Table 7.JPG'].map((src, index) => (
-              <img className="placeholder landscape case-hero-image" key={src} src={src} alt={`Equanimity image ${[1, 2, 6, 7][index]}`} />
+              <Fragment key={src}>
+                <img className={index === 0 ? 'placeholder landscape case-hero-image equanimity-hero' : 'placeholder landscape case-hero-image'} src={src} alt={`Equanimity image ${[1, 2, 6, 7][index]}`} />
+                {index === 1 && renderSection(0)}
+                {index === 3 && renderSection(1)}
+              </Fragment>
             ))}
             {[8, 9].map((number) => (
-              <div className="case-images" key={number}>
-                <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side A).JPG`} alt={`Equanimity image ${number} detail A`} />
-                <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side B).${number === 8 ? 'jpg' : 'JPG'}`} alt={`Equanimity image ${number} detail B`} />
-              </div>
+              <Fragment key={number}>
+                <div className="case-images">
+                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side A).JPG`} alt={`Equanimity image ${number} detail A`} />
+                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side B).${number === 8 ? 'jpg' : 'JPG'}`} alt={`Equanimity image ${number} detail B`} />
+                </div>
+                {number === 8 && renderSection(2)}
+              </Fragment>
             ))}
           </div>
         ) : isAiSearch ? (
