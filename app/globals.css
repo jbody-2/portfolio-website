@@ -50,8 +50,8 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spa
 .case-study > footer { margin-top: 0; }
 .placeholder { display: grid; place-items: center; background: #dcdedc; color: #7b8180; border-radius: 16px; min-height: 360px; font-size: 14px; }
 .case-hero-image { width: 100%; object-fit: cover; }
-.grails-gallery, .lokal-gallery, .influencer-gallery { display: grid; gap: 24px; }
-.grails-gallery .case-images, .lokal-gallery .case-images { margin-top: 0; }
+.grails-gallery, .lokal-gallery, .influencer-gallery, .ai-gallery { display: grid; gap: 24px; }
+.grails-gallery .case-images, .lokal-gallery .case-images, .ai-gallery .case-images { margin-top: 0; }
 .case-portrait-image { width: 100%; object-fit: cover; object-position: center; }
 .case-video { width: 100%; object-fit: cover; }
 .landscape { aspect-ratio: 1.7; }
