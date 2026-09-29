@@ -62,7 +62,7 @@ export function CaseStudy({ slug }: { slug: string }) {
   const landscapeImage = isLokal ? '/hero thumbs/Lokal Mockup_.png' : isInfluencers ? '/hero thumbs/Emma Winter.png' : isGrails ? '/Grails - Body 15.jpeg' : isAiSearch ? '/hero thumbs/Landscape-1.png' : null
   const landscapeAlt = isLokal ? 'Lokal product experience' : isInfluencers ? 'Influencer Storefront' : isGrails ? 'Our Grails installation' : isAiSearch ? 'AI Search experience' : 'Case study hero'
   const grailsImages = Array.from({ length: 14 }, (_, index) => `/Grails - Body ${index + 1}.${index < 10 ? 'png' : index === 10 ? 'JPG' : index === 11 ? 'jpg' : index === 12 ? 'JPG' : 'jpg'}`)
-  const grailsPortraits = ['/Grails - Body 17 (Side A) copy.HEIC', '/Grails - Body 17 (Side B).jpeg']
+  const grailsPortraits = ['/Grails - Body 17 copy (Side A).jpg', '/Grails - Body 17 (Side B).jpeg']
   const grailsThumbnail = '/hero thumbs/our grails thumbnail.png'
   const lokalLandscapeImages = [1, 5, 6, 7, 8, 11, 12, 13, 14].map((number) => `/ Local Hub ${number}.${number === 12 || number === 13 || number === 14 ? 'jpg' : 'png'}`)
   const lokalPortraitGroups = [[2, 'png'], [3, 'png'], [10, 'jpg']].map(([number, extension]) => [`/ Local Hub ${number} (Side A).${extension}`, `/ Local Hub ${number} (Side B).${extension}`])
