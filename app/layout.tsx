@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import ScrollReset from '@/components/scroll-reset'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -39,11 +40,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <link rel="preload" href="/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.toggle('theme-dark', localStorage.getItem('portfolio-theme') === 'dark')` }} />
       </head>
       <body className="antialiased">
+        <ScrollReset />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

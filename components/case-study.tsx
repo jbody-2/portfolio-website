@@ -55,10 +55,19 @@ export function CaseStudy({ slug }: { slug: string }) {
   const isInfluencers = slug === 'influencers'
   const isGrails = slug === 'our-grails'
   const isAiSearch = slug === 'ai-search'
-  const name = isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : isGrails ? 'Our Grails' : isAiSearch ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
-  const company = isLokal || isInfluencers || isAiSearch ? 'eBay' : isGrails ? 'University of Washington' : 'Independent case study'
-  const sections = isLokal ? lokalSections : isInfluencers ? influencerSections : isGrails ? grailsSections : isAiSearch ? aiSearchSections : defaultSections
-  const metadata = isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : isInfluencers ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '4 months' } : isGrails ? { role: 'Researcher, Designer', deliverables: 'Thesis, Publication, Gallery Exhibit', timeline: '12 months' } : isAiSearch ? { role: 'Product Designer', deliverables: 'Native UI, UX, User Research', timeline: '8 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
+  const isEquanimity = slug === 'equanimity'
+  const isPlush = slug === 'plush'
+  const name = isPlush ? 'Plush+' : isEquanimity ? 'Equanimity' : isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : isGrails ? 'Our Grails' : isAiSearch ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
+  const company = isEquanimity || isPlush ? 'Company placeholder' : isLokal || isInfluencers || isAiSearch ? 'eBay' : isGrails ? 'University of Washington' : 'Independent case study'
+  const equanimitySections = [1, 2, 3].map((number) => ({ title: `Section title ${number}`, subtitle: 'Subtitle placeholder', body: 'Body placeholder — a short paragraph describing this part of the Equanimity project will go here. Replace this copy with the final narrative once it is ready.' }))
+  const plushSections = [1, 2, 3, 4].map((number) => ({ title: `Section title ${number}`, subtitle: 'Subtitle placeholder', body: 'Body placeholder — a short paragraph describing this part of the Plush+ project will go here. Replace this copy with the final narrative once it is ready.' }))
+  const plushLandscapeImages = [
+    '/Plush 1.jpeg', '/Plush 2.jpeg', '/Plush 3.jpg', '/Plush 4.png', '/Plush 5.png', '/Plush 6.png',
+    '/Plush 8.png', '/Plush 9.png', '/Plush 10.png', '/Plush 11.png', '/Plush 12.png', '/Plush 13.jpeg', '/Plush 14.png', '/Plush 15.png',
+  ]
+  const plushImageNumber = (src: string) => Number(src.match(/Plush (\d+)/)?.[1])
+  const sections = isPlush ? plushSections : isEquanimity ? equanimitySections : isLokal ? lokalSections : isInfluencers ? influencerSections : isGrails ? grailsSections : isAiSearch ? aiSearchSections : defaultSections
+  const metadata = isEquanimity || isPlush ? { role: 'Role placeholder', deliverables: 'Deliverables placeholder', timeline: 'Timeline placeholder' } : isLokal ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '6 months' } : isInfluencers ? { role: 'Product Designer', deliverables: 'Web & Native UI, UX', timeline: '4 months' } : isGrails ? { role: 'Researcher, Designer', deliverables: 'Thesis, Publication, Gallery Exhibit', timeline: '12 months' } : isAiSearch ? { role: 'Product Designer', deliverables: 'Native UI, UX, User Research', timeline: '8 months' } : { role: 'Design direction, Product design', deliverables: 'Strategy, UX, Visual system', timeline: '12 weeks · 2024' }
   const stats = isLokal ? [['52.5M', 'GMV, +5% growth in local transactions'], ['12', 'Percent increase in Watchlist saves for local inventory'], ['30', 'Percent faster discovery time for local items'], ['4x', 'Increase in local pickup searches in the first 90 days']] : isInfluencers ? [['22', 'Influencers represented in The Cast'], ['400+', 'Updates to Storefronts this year'], ['3', 'Global markets Storefronts has expanded to'], ['22', 'Colleagues I collaborated with to make this project a reality across ads, marketing, product, & engineering']] : [['42%', 'increase in task completion'], ['3.8x', 'faster time to value'], ['12k', 'active users in the first quarter'], ['4.9', 'average product rating']]
   const landscapeImage = isLokal ? '/hero thumbs/Lokal Mockup_.png' : isInfluencers ? '/hero thumbs/Emma Winter.png' : isGrails ? '/Grails - Body 15.jpeg' : isAiSearch ? '/hero thumbs/Landscape-1.png' : null
   const landscapeAlt = isLokal ? 'Lokal product experience' : isInfluencers ? 'Influencer Storefront' : isGrails ? 'Our Grails installation' : isAiSearch ? 'AI Search experience' : 'Case study hero'
@@ -75,8 +84,59 @@ export function CaseStudy({ slug }: { slug: string }) {
     <div className={dark ? 'site dark' : 'site'}>
       <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="/">julian body</Link><div className="nav-links"><div className="desktop-nav"><Link href="/">projects</Link><Link href="/#lab">lab</Link><Link href="/#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu"><Link href="/" onClick={() => setMenuOpen(false)}>projects</Link><Link href="/#lab" onClick={() => setMenuOpen(false)}>lab</Link><Link href="/#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>
       <main className="case-study">
-        <header className="case-header"><p className="case-company">{company}</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>{metadata.role}</strong></div><div><span>Deliverables</span><strong>{metadata.deliverables}</strong></div><div><span>Timeline</span><strong>{metadata.timeline}</strong></div></div><p className="case-intro">{isLokal ? "I helped launch eBay's Local Hub, a neighborhood shopping experience that began in Germany which now serves as the model for global marketplaces." : isInfluencers ? "I was responsible for the buyer-facing user experience of eBay's first influencer platform, a virtual storefront where iconic names curate eBay items to share with their followers." : isAiSearch ? "As a lead designer of eBay's conversational search experience, I shaped how buyers interact with AI to discover items through natural language." : isGrails ? "Framed through conversations with 24 sneaker collectors, Our Grails captures what it means to know one's self through a sneaker." : 'A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.'}</p><button className="case-cta" type="button">Check it out</button></header>
-        {isAiSearch ? (
+        <header className="case-header"><p className="case-company">{company}</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>{metadata.role}</strong></div><div><span>Deliverables</span><strong>{metadata.deliverables}</strong></div><div><span>Timeline</span><strong>{metadata.timeline}</strong></div></div><p className="case-intro">{isPlush ? 'Intro placeholder — a short summary of the Plush+ project and your role will go here.' : isEquanimity ? 'Intro placeholder — a short summary of the Equanimity project and your role will go here.' : isLokal ? "I helped launch eBay's Local Hub, a neighborhood shopping experience that began in Germany which now serves as the model for global marketplaces." : isInfluencers ? "I was responsible for the buyer-facing user experience of eBay's first influencer platform, a virtual storefront where iconic names curate eBay items to share with their followers." : isAiSearch ? "As a lead designer of eBay's conversational search experience, I shaped how buyers interact with AI to discover items through natural language." : isGrails ? "Framed through conversations with 24 sneaker collectors, Our Grails captures what it means to know one's self through a sneaker." : 'A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.'}</p><button className="case-cta" type="button">Check it out</button></header>
+        {isPlush ? (
+          <div className="plush-gallery">
+            {plushLandscapeImages.map((src) => {
+              const number = plushImageNumber(src)
+              return (
+                <Fragment key={src}>
+                  <img className="placeholder landscape case-hero-image" src={src} alt={`Plush+ image ${number}`} />
+                  {number === 3 && renderSection(0)}
+                  {number === 6 && (
+                    <>
+                      <div className="case-images">
+                        <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side A).png" alt="Plush+ image 7 detail A" />
+                        <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side B).png" alt="Plush+ image 7 detail B" />
+                      </div>
+                      {renderSection(1)}
+                    </>
+                  )}
+                  {number === 10 && renderSection(2)}
+                  {number === 13 && renderSection(3)}
+                </Fragment>
+              )
+            })}
+          </div>
+        ) : isEquanimity ? (
+          <div className="equanimity-gallery">
+            {['/table 1.png', '/table 2.png', '/Table 6.png', '/Table 7.JPG'].map((src, index) => (
+              <Fragment key={src}>
+                <img className={index === 0 ? 'placeholder landscape case-hero-image equanimity-hero' : 'placeholder landscape case-hero-image'} src={src} alt={`Equanimity image ${[1, 2, 6, 7][index]}`} />
+                {index === 1 && (
+                  <>
+                    <div className="case-images">
+                      <img className="placeholder portrait case-portrait-image" src="/Table 3 (Side A).JPG" alt="Equanimity image 3 detail A" />
+                      <img className="placeholder portrait case-portrait-image" src="/Table 3 (Side B).jpg" alt="Equanimity image 3 detail B" />
+                    </div>
+                    {renderSection(0)}
+                  </>
+                )}
+                {index === 3 && renderSection(1)}
+              </Fragment>
+            ))}
+            {[8, 9].map((number) => (
+              <Fragment key={number}>
+                <div className="case-images">
+                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side A).JPG`} alt={`Equanimity image ${number} detail A`} />
+                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side B).${number === 8 ? 'jpg' : 'JPG'}`} alt={`Equanimity image ${number} detail B`} />
+                </div>
+                {number === 8 && renderSection(2)}
+              </Fragment>
+            ))}
+            <img className="placeholder landscape case-hero-image" src="/Table 4.jpg" alt="Equanimity image 4" />
+          </div>
+        ) : isAiSearch ? (
           <div className="ai-gallery">
             <img className="placeholder landscape case-hero-image" src={landscapeImage ?? '/hero thumbs/Landscape-1.png'} alt={landscapeAlt} />
             <img className="placeholder landscape case-hero-image" src="/eBay AI 2.png" alt="eBay AI Search image 2" />
@@ -100,9 +160,9 @@ export function CaseStudy({ slug }: { slug: string }) {
             ))}
           </div>
         ) : isInfluencers ? <div className="influencer-gallery"><img className="placeholder landscape case-hero-image" src={influencerImages[0]} alt="Influencer storefront image 1" /><div className="case-images">{influencerPortraits.map((src) => <img className="placeholder portrait case-portrait-image" key={src} src={src} alt="Influencer storefront image 2" />)}</div>{influencerImages.slice(1).map((src, index) => <Fragment key={src}><img className="placeholder landscape case-hero-image" src={src} alt={`Influencer storefront image ${index + 3}`} />{index === 0 && <div className="case-copy"><section><h2>{sections[0].title}</h2><p className="section-subtitle">{sections[0].subtitle}</p><p>{sections[0].body}</p></section></div>}{index === 3 && <div className="case-copy"><section><h2>{sections[1].title}</h2><p className="section-subtitle">{sections[1].subtitle}</p><p>{sections[1].body}</p></section></div>}</Fragment>)}</div> : isLokal ? <div className="lokal-gallery"><img className="placeholder landscape case-hero-image" src={landscapeImage ?? '/hero thumbs/Lokal Mockup_.png'} alt={landscapeAlt} /><img className="placeholder landscape case-hero-image" src="/ Local Hub 1.png" alt="Local Hub 1" /><div className="case-images">{lokalPortraitGroups[0].map((src) => <img className="placeholder portrait case-portrait-image" key={src} src={src} alt="Local Hub 2 detail" />)}</div><div className="case-copy"><section><h2>{sections[0].title}</h2><p className="section-subtitle">{sections[0].subtitle}</p><p>{sections[0].body}</p></section></div><div className="case-images">{lokalPortraitGroups[1].map((src) => <img className="placeholder portrait case-portrait-image" key={src} src={src} alt="Local Hub 3 detail" />)}</div><div className="case-copy"><section><h2>{sections[1].title}</h2><p className="section-subtitle">{sections[1].subtitle}</p><p>{sections[1].body}</p></section></div>{lokalLandscapeImages.slice(1, 5).map((src, index) => <Fragment key={src}><img className="placeholder landscape case-hero-image" src={src} alt={`Local Hub ${index + 5}`} />{index === 3 && <div className="case-copy"><section><h2>{sections[2].title}</h2><p className="section-subtitle">{sections[2].subtitle}</p><p>{sections[2].body}</p></section></div>}</Fragment>)}<video className="placeholder landscape case-video" controls playsInline preload="metadata" src="/ Local Hub 9 (Video).mp4"><track kind="captions" /></video><div className="case-images">{lokalPortraitGroups[2].map((src) => <img className="placeholder portrait case-portrait-image" key={src} src={src} alt="Local Hub 10 detail" />)}</div>{lokalLandscapeImages.slice(5).map((src, index) => <Fragment key={src}><img className="placeholder landscape case-hero-image" src={src} alt={`Local Hub ${index + 11}`} />{index === 0 && <div className="case-copy"><section><h2>{sections[3].title}</h2><p className="section-subtitle">{sections[3].subtitle}</p><p>{sections[3].body}</p></section></div>}</Fragment>)}</div> : isGrails ? <div className="grails-gallery"><img className="placeholder landscape case-hero-image" src={landscapeImage ?? grailsThumbnail} alt={landscapeAlt} /><img className="placeholder landscape case-hero-image" src={grailsThumbnail} alt="Our Grails thumbnail" />{grailsImages.map((src, index) => <Fragment key={src}>{index === 0 && <div className="case-copy"><section><h2>{sections[0].title}</h2><p className="section-subtitle">{sections[0].subtitle}</p><p>{sections[0].body}</p></section></div>} {index === 6 && <div className="case-copy"><section><h2>{sections[1].title}</h2><p className="section-subtitle">{sections[1].subtitle}</p><p>{sections[1].body}</p></section></div>} {index === 12 && <div className="case-copy"><section><h2>{sections[2].title}</h2><p className="section-subtitle">{sections[2].subtitle}</p><p>{sections[2].body}</p></section></div>}<img className="placeholder landscape case-hero-image" src={src} alt={`Our Grails body ${index + 1}`} /></Fragment>)}<div className="case-images">{grailsPortraits.map((src, index) => <img className="placeholder portrait case-portrait-image" key={src} src={src} alt={`Our Grails body 17 side ${index === 0 ? 'A' : 'B'}`} />)}</div></div> : landscapeImage ? <img className="placeholder landscape case-hero-image" src={landscapeImage} alt={landscapeAlt} /> : <div className="placeholder landscape">Landscape image placeholder</div>}
-        {!isGrails && !isLokal && !isInfluencers && !isAiSearch && <div className="case-copy">{sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p className="section-subtitle">{section.subtitle}</p><p>{section.body}</p></section>)}</div>}
-        {!isGrails && !isLokal && !isInfluencers && !isAiSearch && <div className="case-images"><div className="placeholder portrait">Portrait image placeholder</div><div className="placeholder portrait">Portrait image placeholder</div></div>}
-        {!isGrails && !isAiSearch && <div className="stats">{stats.map(([value, description]) => <div key={`${value}-${description}`}><strong>{value}</strong><span>{description}</span></div>)}</div>}
+        {!isGrails && !isLokal && !isInfluencers && !isAiSearch && !isEquanimity && !isPlush && <div className="case-copy">{sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p className="section-subtitle">{section.subtitle}</p><p>{section.body}</p></section>)}</div>}
+        {!isGrails && !isLokal && !isInfluencers && !isAiSearch && !isEquanimity && !isPlush && <div className="case-images"><div className="placeholder portrait">Portrait image placeholder</div><div className="placeholder portrait">Portrait image placeholder</div></div>}
+        {!isGrails && !isAiSearch && !isEquanimity && !isPlush && <div className="stats">{stats.map(([value, description]) => <div key={`${value}-${description}`}><strong>{value}</strong><span>{description}</span></div>)}</div>}
         <Link className="back-link back-link-bottom" href="/">← Back to projects</Link>
       </main>
       <footer><span>© {new Date().getFullYear()} Julian Body</span></footer>
