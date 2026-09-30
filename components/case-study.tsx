@@ -116,8 +116,8 @@ export function CaseStudy({ slug }: { slug: string }) {
                 {index === 1 && (
                   <>
                     <div className="case-images">
-<img className="placeholder portrait case-portrait-image case-contain-image" src="/Table 3 (Side A).JPG" alt="Equanimity image 3 detail A" />
-<img className="placeholder portrait case-portrait-image case-contain-image" src="/Table 3 (Side B).jpg" alt="Equanimity image 3 detail B" />
+<img className="placeholder portrait case-portrait-image" src="/Tabl 10 (A).png" alt="Equanimity image 3 detail A" />
+<img className="placeholder portrait case-portrait-image" src="/Table 10 (B).png" alt="Equanimity image 3 detail B" />
                     </div>
                     {renderSection(0)}
                   </>
