@@ -168,9 +168,8 @@ export function CaseStudy({ slug }: { slug: string }) {
         {!isGrails && !isLokal && !isInfluencers && !isAiSearch && !isEquanimity && !isPlush && <div className="case-copy">{sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p className="section-subtitle">{section.subtitle}</p><p>{section.body}</p></section>)}</div>}
         {!isGrails && !isLokal && !isInfluencers && !isAiSearch && !isEquanimity && !isPlush && <div className="case-images"><div className="placeholder portrait">Portrait image placeholder</div><div className="placeholder portrait">Portrait image placeholder</div></div>}
         {!isGrails && !isAiSearch && !isEquanimity && !isPlush && <div className="stats">{stats.map(([value, description]) => <div key={`${value}-${description}`}><strong>{value}</strong><span>{description}</span></div>)}</div>}
-        <Link className="back-link back-link-bottom" href="/">← Back to projects</Link>
       </main>
-      <footer><span>© {new Date().getFullYear()} Julian Body</span></footer>
+      <footer><Link className="back-link" href="/">← Back to projects</Link><span className="footer-copy">© {new Date().getFullYear()} Julian Body</span></footer>
     </div>
   )
 }
