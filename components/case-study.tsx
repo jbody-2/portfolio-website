@@ -71,8 +71,8 @@ export function CaseStudy({ slug }: { slug: string }) {
     { title: 'In the real world', subtitle: 'Testing with parents and children', body: 'We concept-tested the experience with parents, gathering feedback on the product and mission. We then brought two prototypes to children to observe how the experience held up in person. Kids were excited to build and play with the plush, while also engaging with the booklets and other elements of the package. The testing gave us encouraging evidence that the experience could create engagement at multiple points, not just through the toy itself.' },
   ]
   const plushLandscapeImages = [
-    '/Plush 1.jpeg', '/Plush 2.jpeg', '/Plush 3.jpg', '/Plush 4.png', '/Plush 5.png', '/Plush 6.png',
-    '/Plush 8.png', '/Plush 9.png', '/Plush 10.png', '/Plush 11.png', '/Plush 12.png', '/Plush 13.jpeg', '/Plush 14.png', '/Plush 15.png',
+    '/Plush 1.jpeg', '/Plush 3.jpg', '/Plush 4.png', '/Plush 5.png', '/Plush 6.png',
+    '/Plush 8.png', '/Plush 9.png', '/Plush 10.png', '/Plush 11.png', '/Plush 12.png', '/Plush 2.jpeg', '/Plush 14.png', '/Plush 15.png',
   ]
   const plushImageNumber = (src: string) => Number(src.match(/Plush (\d+)/)?.[1])
   const sections = isPlush ? plushSections : isEquanimity ? equanimitySections : isLokal ? lokalSections : isInfluencers ? influencerSections : isGrails ? grailsSections : isAiSearch ? aiSearchSections : defaultSections
@@ -101,18 +101,16 @@ export function CaseStudy({ slug }: { slug: string }) {
               return (
                 <Fragment key={src}>
                   <img className="placeholder landscape case-hero-image" src={src} alt={`Plush+ image ${number}`} />
-                  {number === 3 && renderSection(0)}
+                  {number === 1 && renderSection(0)}
+                  {number === 5 && renderSection(1)}
                   {number === 6 && (
-                    <>
-                      <div className="case-images">
-                        <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side A).png" alt="Plush+ image 7 detail A" />
-                        <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side B).png" alt="Plush+ image 7 detail B" />
-                      </div>
-                      {renderSection(1)}
-                    </>
+                    <div className="case-images">
+                      <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side A).png" alt="Plush+ image 7 detail A" />
+                      <img className="placeholder portrait case-portrait-image" src="/Plush 7 (Side B).png" alt="Plush+ image 7 detail B" />
+                    </div>
                   )}
                   {number === 10 && renderSection(2)}
-                  {number === 13 && renderSection(3)}
+                  {number === 2 && renderSection(3)}
                 </Fragment>
               )
             })}
@@ -135,14 +133,12 @@ export function CaseStudy({ slug }: { slug: string }) {
               </Fragment>
             ))}
             {[8, 9].map((number) => (
-              <Fragment key={number}>
-                <div className="case-images">
-                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side A).JPG`} alt={`Equanimity image ${number} detail A`} />
-                  <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side B).${number === 8 ? 'jpg' : 'JPG'}`} alt={`Equanimity image ${number} detail B`} />
-                </div>
-                {number === 8 && renderSection(2)}
-              </Fragment>
+              <div className="case-images" key={number}>
+                <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side A).JPG`} alt={`Equanimity image ${number} detail A`} />
+                <img className="placeholder portrait case-portrait-image" src={`/Table ${number} (Side B).${number === 8 ? 'jpg' : 'JPG'}`} alt={`Equanimity image ${number} detail B`} />
+              </div>
             ))}
+            {renderSection(2)}
             <img className="placeholder landscape case-hero-image" src="/Table 4.jpg" alt="Equanimity image 4" />
           </div>
         ) : isAiSearch ? (
