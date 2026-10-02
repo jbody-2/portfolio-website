@@ -10,16 +10,21 @@ export const metadata: Metadata = {
 }
 
 const capabilities = [
-  'Product Design',
-  'AI Experience Design',
   'Interaction Design',
-  'Prototyping',
-  'Design Systems',
-  'User Research',
-  'Physical Design',
+  'Visual Design',
+  'Motion',
+  '3D Modeling',
+  'Machining',
+  'Research Methods',
 ]
 
-const portraitFile = ['Julian Alama Sq.png', 'Julian Alama Sq.jpg', 'Julian Alama Sq.jpeg'].find((file) =>
+const portraitFile = [
+  'Julian Alamo Sq.png',
+  'Julian Alamo Sq.jpg',
+  'Julian Alamo Sq.jpeg',
+  'Julian Alama Sq.png',
+  'Julian Alama Sq.jpg',
+].find((file) =>
   existsSync(path.join(process.cwd(), 'public', file)),
 )
 
