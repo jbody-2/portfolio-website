@@ -125,7 +125,7 @@ footer { align-items: baseline; }
 .about-page { padding-top: 56px; padding-bottom: 128px; }
 .about-bio { margin: 0; max-width: 1000px; font-size: 48px; line-height: 1.04; letter-spacing: -.06em; font-weight: 400; text-wrap: pretty; }
 .about-capabilities { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; margin-top: 128px; }
-.about-label { grid-column: 1 / -1; grid-row: 1; margin: 0 0 16px; font-size: 18px; font-weight: 600; letter-spacing: .02em; color: var(--squall); }
+.about-label { grid-column: 1 / -1; grid-row: 1; margin: 0 0 16px; font-size: 16px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--squall); }
 .capability-list { grid-column: 1 / -1; grid-row: 2; list-style: none; margin: 0; padding: 0; }
 .capability-list li { padding: 18px 0; border-bottom: 1px solid var(--squall); font-size: 18px; line-height: 1.1; letter-spacing: -.05em; font-weight: 400; transition: opacity 200ms ease; }
 .capability-list:has(li:hover) li:not(:hover) { opacity: .3; }
