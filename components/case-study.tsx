@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
-import { Moon, Sun } from 'lucide-react'
+import { Fragment } from 'react'
+import SiteHeader from '@/components/site-header'
 
 const defaultSections = [
   { title: 'A clearer path forward', subtitle: 'Turning complexity into confidence', body: 'Atlas brings the most important decisions into focus. We shaped a system that feels calm at every step, helping teams move from first question to confident action.' },
@@ -35,22 +35,6 @@ const lokalSections = [
 ]
 
 export function CaseStudy({ slug }: { slug: string }) {
-  const [dark, setDark] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    setDark(window.localStorage.getItem('portfolio-theme') === 'dark')
-  }, [])
-
-  const toggleTheme = () => {
-    setDark((current) => {
-      const next = !current
-      window.localStorage.setItem('portfolio-theme', next ? 'dark' : 'light')
-      document.documentElement.classList.toggle('theme-dark', next)
-      return next
-    })
-  }
-
   const isLokal = slug === 'lokal'
   const isInfluencers = slug === 'influencers'
   const isGrails = slug === 'our-grails'
@@ -90,8 +74,8 @@ export function CaseStudy({ slug }: { slug: string }) {
   const renderSection = (index: number) => <div className="case-copy"><section><h2>{sections[index].title}</h2><p className="section-subtitle">{sections[index].subtitle}</p><p>{sections[index].body}</p></section></div>
 
   return (
-    <div className={dark ? 'site dark' : 'site'}>
-      <header className="nav-wrap"><nav className="nav" aria-label="Primary navigation"><Link className="wordmark" href="/">julian body</Link><div className="nav-links"><div className="desktop-nav">{/* Temporarily hidden: <Link href="/">projects</Link><Link href="/#lab">lab</Link> */}<Link href="/#about">about</Link></div><button className="menu-link" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>menu</button><button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>{dark ? <Moon size={17} strokeWidth={1.7} /> : <Sun size={17} strokeWidth={1.7} />}</button></div></nav>{menuOpen && <div className="mobile-menu">{/* Temporarily hidden: <Link href="/" onClick={() => setMenuOpen(false)}>projects</Link><Link href="/#lab" onClick={() => setMenuOpen(false)}>lab</Link> */}<Link href="/#about" onClick={() => setMenuOpen(false)}>about</Link></div>}</header>
+    <div className="site">
+      <SiteHeader />
       <main className="case-study">
         <header className="case-header"><p className="case-company">{company}</p><h1>{name}</h1><div className="case-meta"><div><span>Role</span><strong>{metadata.role}</strong></div><div><span>Deliverables</span><strong>{metadata.deliverables}</strong></div><div><span>Timeline</span><strong>{metadata.timeline}</strong></div></div><p className="case-intro">{isPlush ? "For Stanford's Product Design Capstone, our group designed a plush toy experience to foster empathy across differences in ability." : isEquanimity ? 'I designed and manufactured a bedside table exploring opposing qualities that coexist and strengthen one another.' : isLokal ? "I helped launch eBay's Local Hub, a neighborhood shopping experience that began in Germany which now serves as the model for global marketplaces." : isInfluencers ? "I was responsible for the buyer-facing user experience of eBay's first influencer platform, a virtual storefront where iconic names curate eBay items to share with their followers." : isAiSearch ? "As a lead designer of eBay's conversational search experience, I shaped how buyers interact with AI to discover items through natural language." : isGrails ? "Framed through conversations with 24 sneaker collectors, Our Grails captures what it means to know one's self through a sneaker." : 'A thoughtful digital experience designed to make complex work feel simple, clear, and distinctly human.'}</p>{!(isEquanimity || isPlush || isAiSearch) && <button className="case-cta" type="button">Check it out</button>}</header>
         {isPlush ? (
