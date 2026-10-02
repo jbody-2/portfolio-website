@@ -5,7 +5,7 @@ import SiteHeader from '@/components/site-header'
 const projects = [
   { title: 'eBay AI Search', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Landscape-1.png', color: 'lavender', slug: 'ai-search' },
   { title: 'eBay Local Hub', type: 'UI, UX', year: '2024', image: '/hero thumbs/Lokal Mockup_.png', color: 'blue', slug: 'lokal' },
-  { title: 'eBay Influencer Storefront', type: 'UI, UX, Research', year: '2023', image: '/hero thumbs/Emma Winter.png', color: 'terra', slug: 'influencers' },
+  { title: 'eBay Influencer Storefront', type: 'UI, UX', year: '2023', image: '/hero thumbs/Emma Winter.png', color: 'terra', slug: 'influencers' },
   { title: 'Our Grails', type: 'Installation, Publication', year: '2023', image: '/Grails - Body 15.jpeg', color: 'lime', slug: 'our-grails' },
   { title: 'Plush+', type: 'Physical Design', year: '2024', image: '/Plush 1.jpeg', color: 'blue', slug: 'plush' },
   { title: 'Equanimity', type: 'Physical Design', year: '2024', image: '/table 1.png', color: 'blue', slug: 'equanimity' },
