@@ -1,5 +1,3 @@
-import { existsSync } from 'node:fs'
-import path from 'node:path'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import SiteHeader from '@/components/site-header'
@@ -18,15 +16,7 @@ const capabilities = [
   'Research Methods',
 ]
 
-const portraitFile = [
-  'Julian Alamo Sq.png',
-  'Julian Alamo Sq.jpg',
-  'Julian Alamo Sq.jpeg',
-  'Julian Alama Sq.png',
-  'Julian Alama Sq.jpg',
-].find((file) =>
-  existsSync(path.join(process.cwd(), 'public', file)),
-)
+const portraitFile = 'Julian Alamo Sq.jpg'
 
 export default function AboutPage() {
   return (
@@ -41,11 +31,9 @@ export default function AboutPage() {
           <ul className="capability-list">
             {capabilities.map((item) => <li key={item}>{item}</li>)}
           </ul>
-          {portraitFile && (
-            <div className="about-portrait">
-              <Image src={`/${portraitFile}`} alt="Portrait of Julian Body" fill sizes="(max-width: 900px) 100vw, 40vw" priority />
-            </div>
-          )}
+          <div className="about-portrait">
+            <Image src={`/${portraitFile}`} alt="Portrait of Julian Body" fill sizes="(max-width: 900px) 100vw, 40vw" priority />
+          </div>
         </section>
       </main>
       <footer><span className="footer-copy">© {new Date().getFullYear()} Julian Body</span></footer>

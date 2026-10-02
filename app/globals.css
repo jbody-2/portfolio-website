@@ -126,11 +126,11 @@ footer { align-items: baseline; }
 .about-bio { margin: 0; max-width: 1000px; font-size: 48px; line-height: 1.04; letter-spacing: -.06em; font-weight: 400; text-wrap: pretty; }
 .about-capabilities { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; margin-top: 128px; }
 .about-label { grid-column: 1 / -1; margin: 0 0 16px; font-size: 16px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--squall); }
-.capability-list { grid-column: 1 / -1; grid-row: 2; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--squall); }
+.capability-list { grid-column: 1 / -1; grid-row: 2; list-style: none; margin: 0; padding: 0; }
 .capability-list li { padding: 18px 0; border-bottom: 1px solid var(--squall); font-size: 32px; line-height: 1.1; letter-spacing: -.05em; font-weight: 400; transition: opacity 200ms ease; }
 .capability-list:has(li:hover) li:not(:hover) { opacity: .3; }
-.about-portrait { grid-column: 2; grid-row: 2; align-self: center; position: relative; z-index: 1; width: min(100%, 440px); justify-self: end; aspect-ratio: 1; overflow: hidden; border-radius: 12px; background: #ddd; }
-.about-portrait img { object-fit: cover; }
+.about-portrait { grid-column: 2; grid-row: 2; align-self: center; position: relative; z-index: 1; width: min(100%, 440px); justify-self: end; aspect-ratio: 6 / 7; overflow: hidden; border-radius: 16px; background: #ddd; }
+.about-portrait img { object-fit: cover; object-position: 50% 40%; }
 @media (max-width: 900px) { .about-bio { font-size: 32px; } .about-capabilities { grid-template-columns: 1fr; margin-top: 88px; } .about-portrait { grid-column: 1; grid-row: 2; width: 100%; justify-self: stretch; margin-bottom: 40px; } .capability-list { grid-row: 3; } .capability-list li { font-size: 24px; padding: 16px 0; } }
 @media (max-width: 700px) { .about-page { padding-top: 40px; padding-bottom: 88px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .site { transition: none; } .site > main { animation: none; } }
