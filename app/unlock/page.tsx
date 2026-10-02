@@ -24,6 +24,7 @@ export default async function UnlockPage({ searchParams }: { searchParams: Promi
           <UnlockForm next={safeRedirectPath(next)} />
         </div>
       </main>
+      <footer><span className="footer-copy">© {new Date().getFullYear()} Julian Body</span></footer>
     </div>
   )
 }

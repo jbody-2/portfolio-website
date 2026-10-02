@@ -63,7 +63,7 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spa
 .case-images { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .portrait { aspect-ratio: .8; min-height: 0; }
 .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; background: transparent; margin: 96px 0; }
-.stats div { background: transparent; padding: 40px 32px; display: grid; gap: 12px; }
+.stats div { background: transparent; padding: 40px 32px 40px 0; display: grid; gap: 12px; }
 .stats strong { font-size: clamp(44px, 7vw, 88px); letter-spacing: -.08em; font-weight: 700; }
 .back-link-bottom { margin-bottom: 48px; }
 .stats span { color: var(--text); font-size: 14px; }
@@ -106,6 +106,19 @@ footer { align-items: baseline; }
 .about-portrait img { object-fit: cover; object-position: 50% 40%; }
 @media (max-width: 900px) { .about-bio { font-size: 32px; } .about-capabilities { grid-template-columns: 1fr; margin-top: 88px; } .about-portrait { grid-column: 1; grid-row: 1; translate: none; width: 100%; justify-self: stretch; margin-bottom: 40px; } .about-label { grid-row: 2; } .capability-list { grid-row: 3; } }
 @media (max-width: 700px) { .about-page { padding-top: 40px; padding-bottom: 88px; } }
+html.theme-dark { color-scheme: dark; }
+html.theme-dark body { background: #0B0B0B; color: #F5F5F5; }
+html.theme-dark .placeholder, html.theme-dark .project-image, html.theme-dark .about-portrait { background: #1a1c1c; }
+.theme-toggle .icon-sun, html.theme-dark .theme-toggle .icon-moon { display: none; }
+html.theme-dark .theme-toggle .icon-sun { display: block; }
+.capability-list:has(li:hover) li:not(:hover) { opacity: 1; }
+.project-image:hover { opacity: 1; }
+@media (hover: hover) { .capability-list:has(li:hover) li:not(:hover) { opacity: .3; } .project-image:hover { opacity: .85; } .nav a, .back-link, .theme-toggle { transition: opacity .2s ease; } .nav a:hover, .back-link:hover, .theme-toggle:hover { opacity: .6; } }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; border-radius: 4px; }
+.project-image:focus-visible { border-radius: 12px; }
+::selection { background: var(--squall); color: #F5F5F5; }
+.not-found { padding-top: 48px; padding-bottom: 128px; }
+.not-found .back-link { display: inline-block; margin-top: 40px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .site { transition: none; } .site > main { animation: none; } }
 @font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Variable.woff2') format('woff2'); font-style: normal; font-weight: 200 800; font-display: block; }
 

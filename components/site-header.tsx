@@ -26,7 +26,8 @@ export function SiteHeader() {
           {/* Temporarily hidden: <Link href="/">projects</Link><Link href="/#lab">lab</Link> */}
           <Link href="/about">about</Link>
           <button className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}>
-            {dark ? <Sun size={17} strokeWidth={1.7} /> : <Moon size={17} strokeWidth={1.7} />}
+            <Sun className="icon-sun" size={17} strokeWidth={1.7} aria-hidden="true" />
+            <Moon className="icon-moon" size={17} strokeWidth={1.7} aria-hidden="true" />
           </button>
         </div>
       </nav>
