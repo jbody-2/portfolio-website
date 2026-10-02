@@ -11,6 +11,7 @@ const capabilities = [
   'Interaction Design',
   'Visual Design',
   'Motion',
+  'Physical Design',
   '3D Modeling',
   'Machining',
   'Research Methods',
