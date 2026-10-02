@@ -51,7 +51,7 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 118px); line-height: .95; letter-spa
 .case-portrait-image { width: 100%; object-fit: cover; object-position: center; }
 .case-contain-image { object-fit: contain; }
 .case-video { width: 100%; object-fit: cover; }
-.landscape { aspect-ratio: 1.7; }
+.landscape { aspect-ratio: 1.7; min-height: 0; }
 .case-copy { max-width: none; margin: 128px 0; }
 .case-copy section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; align-items: start; }
 .case-copy section + section { margin-top: 112px; }
