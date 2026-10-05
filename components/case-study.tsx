@@ -41,7 +41,7 @@ export function CaseStudy({ slug }: { slug: string }) {
   const isAiSearch = slug === 'ai-search'
   const isEquanimity = slug === 'equanimity'
   const isPlush = slug === 'plush'
-  const name = isPlush ? 'Plush+' : isEquanimity ? 'Equanimity' : isLokal ? 'Lokal' : isInfluencers ? 'Influencers' : isGrails ? 'Our Grails' : isAiSearch ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
+  const name = isPlush ? 'Plush+' : isEquanimity ? 'Equanimity' : isLokal ? 'Local Hub' : isInfluencers ? 'Influencers' : isGrails ? 'Our Grails' : isAiSearch ? 'AI Search' : slug === 'field-notes' ? 'Field Notes' : slug === 'forma' ? 'Forma' : slug === 'quiet-hours' ? 'Quiet Hours' : 'Atlas'
   const company = isEquanimity || isPlush ? 'Stanford University' : isLokal || isInfluencers || isAiSearch ? 'eBay' : isGrails ? 'University of Washington' : 'Independent case study'
   const equanimitySections = [
     { title: 'A personal starting point', subtitle: 'Finding form', body: 'My brother was moving into his first home, and I wanted to make an object for his new space. The contrast in our personalities—and the way those differences strengthen one another—made me wonder what an object inspired by our relationship might look like. That duality became a starting point for exploring material, structure, and form. Sketches, CAD, and physical prototypes helped translate the idea into a functional object.' },
