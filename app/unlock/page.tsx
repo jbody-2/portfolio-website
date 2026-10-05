@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import SiteHeader from '@/components/site-header'
 import { UnlockForm } from '@/components/unlock-form'
 import { safeRedirectPath } from '@/lib/protected-access'
 
@@ -13,12 +14,7 @@ export default async function UnlockPage({ searchParams }: { searchParams: Promi
 
   return (
     <div className="site">
-      <header className="nav-wrap">
-        <nav className="nav" aria-label="Primary navigation">
-          <Link className="wordmark" href="/">julian body</Link>
-          <div className="nav-links"><div className="desktop-nav"><Link href="/">projects</Link><Link href="/#about">about</Link></div></div>
-        </nav>
-      </header>
+      <SiteHeader />
       <main className="case-study unlock">
         <Link className="back-link" href="/">← Back to projects</Link>
         <div className="case-header">
@@ -28,6 +24,7 @@ export default async function UnlockPage({ searchParams }: { searchParams: Promi
           <UnlockForm next={safeRedirectPath(next)} />
         </div>
       </main>
+      <footer><span className="footer-copy">© {new Date().getFullYear()} Julian Body</span></footer>
     </div>
   )
 }

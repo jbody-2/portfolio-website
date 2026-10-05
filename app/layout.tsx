@@ -1,11 +1,12 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import ScrollReset from '@/components/scroll-reset'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Julian Body — Senior Product Designer',
-  description: 'Portfolio of Julian Body, a senior product designer making useful things feel inevitable.',
+  title: 'Julian Body — Senior Experience Designer',
+  description: 'Julian Body is a senior experience designer at eBay, currently building AI buyer experiences. Based in the San Francisco Bay Area.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -29,8 +30,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: '(prefers-color-scheme: light)', color: '#F5F5F5' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B0B0B' },
   ],
 }
 
@@ -40,10 +41,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.toggle('theme-dark', localStorage.getItem('portfolio-theme') === 'dark')` }} />
+        <Script id="theme-init" strategy="beforeInteractive">{`document.documentElement.classList.toggle('theme-dark', localStorage.getItem('portfolio-theme') === 'dark')`}</Script>
       </head>
       <body className="antialiased">
         <ScrollReset />
